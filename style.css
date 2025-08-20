@@ -5,12 +5,13 @@
 }
 body {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items:center;
   max-width: 100vw;
   min-height: 100vh;
 }
-.container {
+.grid-container {
   outline: 2px solid black;
   display: flex;
   min-width: 40%;
@@ -19,5 +20,5 @@ body {
 .grid-squares {
   outline: 1px solid black;
   aspect-ratio: 1/1;
-  flex-basis: calc(100% / 16);
+  flex-basis: calc(100% / var(--grid-rows-columns));
 }
