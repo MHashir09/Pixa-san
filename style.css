@@ -10,6 +10,7 @@ body {
   align-items:center;
   max-width: 100vw;
   min-height: 100vh;
+  background-image: url("https://saint-images.neocities.org/backgrounds/clouds2.png");
 }
 .container {
   display: flex;
