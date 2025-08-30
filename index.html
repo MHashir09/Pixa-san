@@ -14,6 +14,9 @@
 <body>
   <div class="container">
     <div class="grid-container"></div>
+    <div class="header">
+      <h1 class="headerHeading">Set your preferences („• ᴗ •„)</h1>
+    </div>
     <form>
       <div class="formData">
         <div class="colorEffects">
@@ -31,15 +34,22 @@
           <hr>
           <h3>"Instructions"</h3>
           <p>
-            Enter your preferred grid size below in values of tens from 1-100, if you enter a value that is lower than 0 or higher than 100, sketchboard won't appear. Whatever size you specify will determine the number of squares in each row and column. <strong>For example:</strong> if you enter "16" it will create a 16x16 grid for you (16 rows and 16 columns) forming a perfect square grid to bear your creativity !
+            Enter your preferred grid size below in values of tens from 1-100, if you enter a value that is lower than 0
+            or higher than 100, sketchboard won't appear. Whatever size you specify will determine the number of squares
+            in each row and column. <strong>For example:</strong> if you enter "16" it will create a 16x16 grid for you
+            (16 rows and 16 columns) forming a perfect square grid to bear your creativity !
           </p>
           <input type="number" id="grid-size" placeholder=0 />
-          <div class="image">
-            <img src="icons/hange.png" alt="an image of hange painting something">
+          <div class="inputImage">
+            <img src="icons/hange.png" alt="an image of hange painting something" class="hangeImg">
           </div>
         </div>
       </div>
-      <button type="submit" id="submitButton">submit</button>
+      <div class="submitBtn">
+        <img src="https://saint-images.neocities.org/images/flower1.gif" alt="a blue rotating flower" class="flowerGif">
+        <button type="submit" id="submitButton">Start Pixeling</button>
+        <img src="https://saint-images.neocities.org/images/flower1.gif" alt="a blue rotating flower" class="flowerGif">
+      </div>
     </form>
   </div>
 </body>
