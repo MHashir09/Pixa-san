@@ -2,6 +2,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Silkscreen", sans-serif;
+  color: #9ccfd8; /* foam */
 }
 body {
   display: flex;
@@ -14,9 +16,75 @@ body {
 }
 .container {
   display: flex;
-  justify-content: space-around;
   align-items: center;
+  justify-content: center;
   min-width: 100%
+}
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 100px;
+  width: 100%;
+}
+.formData {
+  display: flex;
+  flex-wrap: wrap;
+  min-width: 100%;
+  justify-content: space-around;
+  margin-top: 70px;
+}
+.colorEffects {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  border-radius: 42px;
+  min-width: min-content;
+  padding: 20px 30px;
+  background-color: white;
+  padding-bottom: 20px;
+}
+h1{
+  text-align: center;
+  margin-bottom: 8px;
+  font-size: 26px;
+  color: #3e8fb0;
+}
+hr {
+  border: 1px solid #9ccfd8;
+  width: 78%;
+}
+#colorPicker {
+  margin: 20px 30px;
+  padding: 0 10px;
+}
+h3 {
+  color: #c4a7e7;
+  margin: 15px 0 0 0;
+  text-align: center;
+}
+#rainbowMode, #trailingEffect {
+  border: none;
+  border-radius: 12px;
+  padding: 12px 22px;
+  color: #3e8fb0;
+  background-color: #e0def4;
+  cursor: pointer;
+  margin: 14px 0;
+}
+.gridSizeInput {
+   display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 42px;
+  min-width: min-content;
+  padding: 20px 30px;
+  background-color: white;
+  padding-bottom: 20px;
+}
+.gridSizeInput {
+  background-color: beige;
+  outline: 2px solid red
 }
 .grid-container {
   outline: 2px solid black;
