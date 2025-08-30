@@ -6,16 +6,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Etch-A-Sketch</title>
   <link href="style.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/@jaames/iro@5"></script>
   <script src="script.js" defer></script>
 </head>
 
 <body>
   <div class="container">
-    <div id="colorPicker"></div>
     <div class="grid-container"></div>
     <form>
-      <input type="number" id="grid-size" />
+      <div class="formData">
+        <div class="colorEffects">
+          <h1>Colors/Effects</h1>
+          <hr>
+          <h3>Choose a color</h3>
+          <div id="colorPicker"></div>
+          <h3>Or</h3>
+          <button id="rainbowMode">Enable rainbow mode</button>
+          <h3>Also do you want to</h3>
+          <button id="trailingEffect">Enable trailing effect</button>
+        </div>
+        <div class="gridSizeInput">
+          <input type="number" id="grid-size" />
+        </div>
+      </div>
       <button type="submit" id="submitButton">submit</button>
     </form>
   </div>
