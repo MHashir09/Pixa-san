@@ -1,25 +1,30 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "Silkscreen", sans-serif;
-  color: #9ccfd8; /* foam */
+  color: #9ccfd8;
+  /* foam */
 }
+
 body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items:center;
+  align-items: center;
   max-width: 100vw;
   min-height: 100vh;
   background-image: url("https://saint-images.neocities.org/backgrounds/clouds2.png");
+  cursor: url(icons/cursor.png), default;
 }
+
 .container {
   display: flex;
   align-items: center;
   justify-content: center;
   min-width: 100%
 }
+
 form {
   display: flex;
   flex-direction: column;
@@ -27,43 +32,51 @@ form {
   gap: 100px;
   width: 100%;
 }
+
 .formData {
   display: flex;
   flex-wrap: wrap;
   min-width: 100%;
-  justify-content: space-around;
+  justify-content: space-evenly;
   margin-top: 70px;
 }
+
 .colorEffects {
   display: flex;
   flex-flow: column wrap;
   align-items: center;
   border-radius: 42px;
-  min-width: min-content;
+  max-width: min-content;
   padding: 20px 30px;
   background-color: white;
   padding-bottom: 20px;
 }
-h1{
+
+h1 {
   text-align: center;
   margin-bottom: 8px;
   font-size: 26px;
   color: #3e8fb0;
 }
+
 hr {
   border: 1px solid #9ccfd8;
-  width: 78%;
+  width: 100%;
 }
+
 #colorPicker {
   margin: 20px 30px;
   padding: 0 10px;
 }
+
 h3 {
   color: #c4a7e7;
   margin: 15px 0 0 0;
   text-align: center;
 }
-#rainbowMode, #trailingEffect {
+
+#rainbowMode,
+#trailingEffect {
   border: none;
   border-radius: 12px;
   padding: 12px 22px;
@@ -72,19 +85,51 @@ h3 {
   cursor: pointer;
   margin: 14px 0;
 }
+
+#rainbowMode:hover,
+#trailingEffect:hover {
+  box-shadow: 0 6px 14px #393552;
+}
+
 .gridSizeInput {
-   display: flex;
+  display: flex;
   flex-direction: column;
   align-items: center;
   border-radius: 42px;
-  min-width: min-content;
+  max-width: 32%;
   padding: 20px 30px;
   background-color: white;
   padding-bottom: 20px;
 }
-.gridSizeInput {
-  background-color: beige;
-  outline: 2px solid red
+
+p {
+  margin: 8px 0;
+  text-align: center;
+  color: #575279;
+}
+input {
+  border-radius: 12px;
+  border: none;
+  padding: 12px 22px;
+  color: #3e8fb0;
+  background-color: #e0def4;
+  margin: 14px 0;
+  text-align: center;
+}
+input::-webkit-inner-spin-button,
+input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input:focus {
+  outline: none;
+  box-shadow: 0 6px 14px #393552;
+}
+.image {
+  max-width: 70%;
+}
+img {
+  width: 100%;
 }
 .grid-container {
   outline: 2px solid black;
@@ -92,6 +137,7 @@ h3 {
   min-width: 40%;
   flex-wrap: wrap;
 }
+
 .grid-squares {
   outline: 1px solid black;
   aspect-ratio: 1/1;
