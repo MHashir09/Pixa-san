@@ -20,9 +20,21 @@ body {
 
 .container {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-width: 100%
+  min-width: 100%;
+}
+
+.header {
+  background-color: white;
+  border-radius: 42px;
+  margin-top: 50px;
+  padding: 20px 27px;
+}
+
+.headerHeading:hover {
+  text-shadow: 0 6px 14px #9ccfd8;
 }
 
 form {
@@ -67,6 +79,7 @@ hr {
 #colorPicker {
   margin: 20px 30px;
   padding: 0 10px;
+  cursor: url(https://cur.cursors-4u.net/games/gam-12/gam1113.cur), default;
 }
 
 h3 {
@@ -75,8 +88,7 @@ h3 {
   text-align: center;
 }
 
-#rainbowMode,
-#trailingEffect {
+button {
   border: none;
   border-radius: 12px;
   padding: 12px 22px;
@@ -86,9 +98,9 @@ h3 {
   margin: 14px 0;
 }
 
-#rainbowMode:hover,
-#trailingEffect:hover {
+button:hover {
   box-shadow: 0 6px 14px #393552;
+  cursor: url(https://cur.cursors-4u.net/games/gam-12/gam1113.cur), default;
 }
 
 .gridSizeInput {
@@ -107,6 +119,7 @@ p {
   text-align: center;
   color: #575279;
 }
+
 input {
   border-radius: 12px;
   border: none;
@@ -116,21 +129,42 @@ input {
   margin: 14px 0;
   text-align: center;
 }
+
 input::-webkit-inner-spin-button,
 input::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+
 input:focus {
   outline: none;
   box-shadow: 0 6px 14px #393552;
 }
-.image {
+
+.inputImage {
   max-width: 70%;
 }
-img {
+
+.hangeImg {
   width: 100%;
 }
+
+.submitBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  margin: 0 30px 40px 0;
+  min-width: 25%;
+  border-radius: 42px;
+}
+
+.flowerGif {
+  width: 40px;
+  height: 40px;
+  margin: 0 40px;
+}
+
 .grid-container {
   outline: 2px solid black;
   display: flex;
