@@ -3,9 +3,12 @@ const gridContainer = document.querySelector(".grid-container");
 const submitBtn = document.querySelector("#submitButton");
 const colorPicker = new iro.ColorPicker("#colorPicker");
 const randomModeBtn = document.querySelector("#randomMode");
+const trailingEffectBtn = document.querySelector("#trailingEffect");
 
 let isDragging = false;
 let toggleRandomMode = false;
+let toggleTrailingEffect = false;
+let opacityValue = 0;
 
 randomModeBtn.addEventListener('click', (event) => {
   event.preventDefault();
@@ -13,9 +16,25 @@ randomModeBtn.addEventListener('click', (event) => {
   if (toggleRandomMode == false) {
     toggleRandomMode = true;
     randomModeBtn.style.backgroundColor = '#f2e9e1';
+    randomModeBtn.textContent = 'Random Mode Enabled';
   } else {
     toggleRandomMode = false;
     randomModeBtn.style.backgroundColor = '#e0def4';
+    randomModeBtn.textContent = 'Enable Random Mode';
+  }
+});
+
+trailingEffectBtn.addEventListener('click', (event) => {
+    event.preventDefault();
+
+  if (toggleTrailingEffect == false) {
+    toggleTrailingEffect = true;
+    trailingEffectBtn.style.backgroundColor = '#f2e9e1';
+    trailingEffectBtn.textContent = 'Trailing Effect Enabled';
+  } else {
+    toggleTrailingEffect = false;
+    trailingEffectBtn.style.backgroundColor = '#e0def4';
+    trailingEffectBtn.textContent = 'Enable Trailing Effect';
   }
 });
 
@@ -54,10 +73,22 @@ function generateRandomRgbColor() {
   return `rgb(${r}, ${g}, ${b})`;
 }
 
+function generateTrailingEffect() {
+  if (opacityValue >= 0 && opacityValue < 100) {
+    let currentValue = opacityValue;
+    // Used a second variable to seamlessly increment opacity value from 0 to 100, if we dont then it will increment weirdly like it will start from 10 instead of 0 but when currentValue variable is used to store opacity value and then we increment the opacity value, returning the currentValue it works. lets say opacity value is 0, its then stored inside currentValue variable and then incremented now being 10, we return currentValue which is 0, the opacity value we wanted, so when mouse enters next square the value 10 is returned and the process continues.
+    opacityValue += 10;
+    return `${currentValue}%`;
+  } else {
+    opacityValue = 0;
+  }
+}
+
 function handleMouseDown(event) {
   event.preventDefault();
   // Using prevent default make sure it doesnt try to grab and drag text or anything else causing weird behaviour
   if (event.target.classList.contains("grid-squares")) {
+
     if (toggleRandomMode == false) {
       isDragging = true;
       event.target.style.backgroundColor = colorPicker.color.hexString;
@@ -66,6 +97,8 @@ function handleMouseDown(event) {
       isDragging = true;
       event.target.style.backgroundColor = generateRandomRgbColor();
     }
+
+    if (toggleTrailingEffect == true) event.target.style.opacity = generateTrailingEffect();
   }
 }
 
@@ -76,9 +109,12 @@ function handleMouseOver(event) {
     } else if (toggleRandomMode == true) {
       event.target.style.backgroundColor = generateRandomRgbColor();
     }
+
+    if (toggleTrailingEffect == true) event.target.style.opacity = generateTrailingEffect();
   }
 }
 
 function handleMouseUp() {
   isDragging = false;
+  opacityValue = 0;
 }
