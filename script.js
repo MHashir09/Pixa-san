@@ -1,9 +1,10 @@
 const gridContainer = document.querySelector(".grid-container");
-//gridContainer.style.display = 'none';
 const submitBtn = document.querySelector("#submitButton");
 const colorPicker = new iro.ColorPicker("#colorPicker");
 const randomModeBtn = document.querySelector("#randomMode");
 const trailingEffectBtn = document.querySelector("#trailingEffect");
+const form = document.querySelector("form");
+const header = document.querySelector(".header");
 
 let isDragging = false;
 let toggleRandomMode = false;
@@ -44,6 +45,10 @@ submitBtn.addEventListener("click", (event) => {
 
   gridContainer.innerHTML = "";
   inputBox.value = "";
+
+  form.classList.toggle("hidden");
+  header.classList.toggle("hidden");
+
   if (gridSize >= 0 && gridSize <= 100) createGrid(gridSize);
   event.preventDefault();
 });
