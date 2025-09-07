@@ -1,19 +1,24 @@
-const grid = document.querySelector(".grid");
-const submitBtn = document.querySelector("#submitButton");
+/*>>> Referencing html elements >>>*/
+
+const pageTitle = document.querySelector("title");
 const colorPicker = new iro.ColorPicker("#colorPicker");
-const randomModeBtns = document.querySelectorAll(".randomMode");
-const trailingEffectBtns = document.querySelectorAll(".trailingEffect");
+
 const aboutSection = document.querySelector(".about-page-section");
 const presetsSection = document.querySelector(".presetsSection");
 const sketchboardSection = document.querySelector(".sketchboard-section");
-const pageTitle = document.querySelector("title");
-const redirectToPreferencesBtns = document.querySelectorAll(
-  ".redirectToPreferences",
-);
+
+const submitBtn = document.querySelector("#submitButton");
+const randomModeBtns = document.querySelectorAll(".randomMode");
+const trailingEffectBtns = document.querySelectorAll(".trailingEffect");
+const redirectToPreferencesBtns = document.querySelectorAll(".redirectToPreferences");
 const redirectToAboutPageBtn = document.querySelector("#redirectToAboutPage");
-const controls = document.querySelector(".controls");
 const toggleCtrlBtn = document.querySelector("#toggleCtrlBtn");
 const clearGridBtn = document.querySelector("#clearGrid");
+
+const grid = document.querySelector(".grid");
+const controls = document.querySelector(".controls");
+
+/*>>> State variables <<<*/
 
 let currentSection = "about";
 let gridSize = "";
@@ -21,6 +26,8 @@ let isDragging = false;
 let toggleRandomMode = false;
 let toggleTrailingEffect = false;
 let opacityValue = 0;
+
+/*>>> Button event listeners and handlers <<<*/
 
 redirectToPreferencesBtns.forEach((button) => {
   button.addEventListener("click", () => {
@@ -113,10 +120,13 @@ trailingEffectBtns.forEach((button) => {
   });
 });
 
+/*>>> Functions <<<*/
+
 function createGrid(gridSize) {
-  grid.removeEventListener("mousedown", handleMouseDown); //
-  grid.removeEventListener("mouseover", handleMouseOver); //   To make sure event listeners dont accumulate after new grid creation
-  window.removeEventListener("mouseup", handleMouseUp); //
+  // To make sure event listeners dont accumulate after another grid creation
+  grid.removeEventListener("mousedown", handleMouseDown);
+  grid.removeEventListener("mouseover", handleMouseOver);
+  window.removeEventListener("mouseup", handleMouseUp);
 
   for (let i = 0; i < gridSize ** 2; i++) {
     var square = document.createElement("div");
@@ -140,7 +150,7 @@ function generateRandomRgbColor() {
 function generateTrailingEffect() {
   if (opacityValue >= 0 && opacityValue < 100) {
     let currentValue = opacityValue;
-    // Used a second variable to seamlessly increment opacity value from 0 to 100, if we dont then it will increment weirdly like it will start from 10 instead of 0 but when currentValue variable is used to store opacity value and then we increment the opacity value, returning the currentValue it works. lets say opacity value is 0, its then stored inside currentValue variable and then incremented now being 10, we return currentValue which is 0, the opacity value we wanted, so when mouse enters next square the value 10 is returned and the process continues.
+    /* Used a second variable to seamlessly increment opacity value from 0 to 100, if we dont then it will increment weirdly like it will start from 10 instead of 0 but when currentValue variable is used to store opacity value and then we increment the opacity value, returning the currentValue it works. lets say opacity value is 0, its then stored inside currentValue variable and then incremented now being 10, we return currentValue which is 0, the opacity value we wanted, so when mouse enters next square the value 10 is returned and the process continues. */
     opacityValue += 10;
     return `${currentValue}%`;
   } else {
