@@ -8,7 +8,7 @@ const presetsSection = document.querySelector(".presetsSection");
 const sketchboardSection = document.querySelector(".sketchboard-section");
 const pageTitle = document.querySelector("title");
 const redirectToPreferencesBtns = document.querySelectorAll(
-  ".redirectToPreferences"
+  ".redirectToPreferences",
 );
 const redirectToAboutPageBtn = document.querySelector("#redirectToAboutPage");
 const controls = document.querySelector(".controls");
@@ -64,17 +64,19 @@ submitBtn.addEventListener("click", (event) => {
 
   if (gridSize >= 0 && gridSize <= 100) createGrid(gridSize);
 
-  if (currentSection == "preferences") {
-    presetsSection.classList.add("hidden");
-    aboutSection.classList.add("hidden");
-    sketchboardSection.classList.remove("hidden");
-    currentSection = "sketchboard";
-    pageTitle.textContent = "";
-    pageTitle.textContent = "Pixa San";
+  if (!(gridSize == 0)) {
+    if (currentSection == "preferences") {
+      presetsSection.classList.add("hidden");
+      aboutSection.classList.add("hidden");
+      sketchboardSection.classList.remove("hidden");
+      currentSection = "sketchboard";
+      pageTitle.textContent = "";
+      pageTitle.textContent = "Pixa San";
+    }
   }
 });
 
-clearGridBtn.addEventListener('click', () => {
+clearGridBtn.addEventListener("click", () => {
   grid.innerHTML = "";
   createGrid(gridSize);
 });
