@@ -286,7 +286,8 @@ input:focus {
 }
 
 .info p {
-  padding: 16px 16px 0 16px;
+  padding: 12px 14px 0 14px;
+  max-width: 100%;
 }
 
 .info a {
