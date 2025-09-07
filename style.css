@@ -18,7 +18,7 @@ body {
   cursor: url(icons/cursor.png), default;
 }
 
-.container {
+section {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -167,7 +167,7 @@ input:focus {
   margin: 0 40px;
 }
 
-.sketchboard-container {
+.sketchboard-section {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -190,7 +190,7 @@ input:focus {
 
 .grid {
   display: flex;
-  flex-basis: 41%;
+  flex-basis: 100%;
   flex-wrap: wrap;
   background-color: white;
   padding: 5px;
@@ -200,6 +200,7 @@ input:focus {
 
 .grid-squares {
   aspect-ratio: 1;
+  outline: 1px solid black;
   flex-basis: calc(100% / var(--grid-rows-columns));
 }
 
