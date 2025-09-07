@@ -16,7 +16,7 @@ const toggleCtrlBtn = document.querySelector("#toggleCtrlBtn");
 const clearGridBtn = document.querySelector("#clearGrid");
 
 let currentSection = "about";
-
+let gridSize = "";
 let isDragging = false;
 let toggleRandomMode = false;
 let toggleTrailingEffect = false;
@@ -57,7 +57,7 @@ toggleCtrlBtn.addEventListener("click", () =>
 submitBtn.addEventListener("click", (event) => {
   event.preventDefault();
   const inputBox = document.querySelector("#grid-size");
-  const gridSize = +inputBox.value;
+  gridSize = +inputBox.value;
 
   grid.innerHTML = "";
   inputBox.value = "";
