@@ -1,73 +1,129 @@
-const gridContainer = document.querySelector(".grid-container");
+const grid = document.querySelector(".grid");
 const submitBtn = document.querySelector("#submitButton");
 const colorPicker = new iro.ColorPicker("#colorPicker");
-const randomModeBtn = document.querySelector("#randomMode");
-const trailingEffectBtn = document.querySelector("#trailingEffect");
-const form = document.querySelector("form");
-const header = document.querySelector(".header");
+const randomModeBtns = document.querySelectorAll(".randomMode");
+const trailingEffectBtns = document.querySelectorAll(".trailingEffect");
+const aboutSection = document.querySelector(".about-page-section");
+const presetsSection = document.querySelector(".presetsSection");
+const sketchboardSection = document.querySelector(".sketchboard-section");
+const pageTitle = document.querySelector("title");
+const redirectToPreferencesBtns = document.querySelectorAll(
+  ".redirectToPreferences"
+);
+const redirectToAboutPageBtn = document.querySelector("#redirectToAboutPage");
+const controls = document.querySelector(".controls");
+const toggleCtrlBtn = document.querySelector("#toggleCtrlBtn");
+const clearGridBtn = document.querySelector("#clearGrid");
+
+let currentSection = "about";
 
 let isDragging = false;
 let toggleRandomMode = false;
 let toggleTrailingEffect = false;
 let opacityValue = 0;
 
-randomModeBtn.addEventListener('click', (event) => {
-  event.preventDefault();
-
-  if (toggleRandomMode == false) {
-    toggleRandomMode = true;
-    randomModeBtn.style.backgroundColor = '#f2e9e1';
-    randomModeBtn.textContent = 'Random Mode Enabled';
-  } else {
-    toggleRandomMode = false;
-    randomModeBtn.style.backgroundColor = '#e0def4';
-    randomModeBtn.textContent = 'Enable Random Mode';
-  }
+redirectToPreferencesBtns.forEach((button) => {
+  button.addEventListener("click", () => {
+    if (currentSection == "about") {
+      aboutSection.classList.add("hidden");
+      presetsSection.classList.remove("hidden");
+      pageTitle.textContent = "";
+      pageTitle.textContent = "Preferences";
+      currentSection = "preferences";
+    } else if (currentSection == "sketchboard") {
+      sketchboardSection.classList.add("hidden");
+      presetsSection.classList.remove("hidden");
+      controls.classList.add("hidden");
+      pageTitle.textContent = "";
+      pageTitle.textContent = "Preferences";
+      currentSection = "preferences";
+    }
+  });
 });
 
-trailingEffectBtn.addEventListener('click', (event) => {
-    event.preventDefault();
-
-  if (toggleTrailingEffect == false) {
-    toggleTrailingEffect = true;
-    trailingEffectBtn.style.backgroundColor = '#f2e9e1';
-    trailingEffectBtn.textContent = 'Trailing Effect Enabled';
-  } else {
-    toggleTrailingEffect = false;
-    trailingEffectBtn.style.backgroundColor = '#e0def4';
-    trailingEffectBtn.textContent = 'Enable Trailing Effect';
-  }
+redirectToAboutPageBtn.addEventListener("click", () => {
+  sketchboardSection.classList.add("hidden");
+  aboutSection.classList.remove("hidden");
+  controls.classList.add("hidden");
+  pageTitle.textContent = "";
+  pageTitle.textContent = "Welcome !!";
+  currentSection = "about";
 });
+
+toggleCtrlBtn.addEventListener("click", () =>
+  controls.classList.toggle("hidden"),
+);
 
 submitBtn.addEventListener("click", (event) => {
+  event.preventDefault();
   const inputBox = document.querySelector("#grid-size");
   const gridSize = +inputBox.value;
 
-  gridContainer.innerHTML = "";
+  grid.innerHTML = "";
   inputBox.value = "";
 
-  form.classList.toggle("hidden");
-  header.classList.toggle("hidden");
-
   if (gridSize >= 0 && gridSize <= 100) createGrid(gridSize);
-  event.preventDefault();
+
+  if (currentSection == "preferences") {
+    presetsSection.classList.add("hidden");
+    aboutSection.classList.add("hidden");
+    sketchboardSection.classList.remove("hidden");
+    currentSection = "sketchboard";
+    pageTitle.textContent = "";
+    pageTitle.textContent = "Pixa San";
+  }
+});
+
+clearGridBtn.addEventListener('click', () => {
+  createGrid(gridSize);
+});
+
+randomModeBtns.forEach((button) => {
+  button.addEventListener("click", (event) => {
+    event.preventDefault();
+
+    if (toggleRandomMode == false) {
+      toggleRandomMode = true;
+      button.style.backgroundColor = "#f2e9e1";
+      button.textContent = "Random Mode Enabled";
+    } else {
+      toggleRandomMode = false;
+      button.style.backgroundColor = "#e0def4";
+      button.textContent = "Enable Random Mode";
+    }
+  });
+});
+
+trailingEffectBtns.forEach((button) => {
+  button.addEventListener("click", (event) => {
+    event.preventDefault();
+
+    if (toggleTrailingEffect == false) {
+      toggleTrailingEffect = true;
+      button.style.backgroundColor = "#f2e9e1";
+      button.textContent = "Trailing Effect Enabled";
+    } else {
+      toggleTrailingEffect = false;
+      button.style.backgroundColor = "#e0def4";
+      button.textContent = "Enable Trailing Effect";
+    }
+  });
 });
 
 function createGrid(gridSize) {
-
-  gridContainer.removeEventListener("mousedown", handleMouseDown); //
-  gridContainer.removeEventListener("mouseover", handleMouseOver); //   To make sure event listeners dont accumulate after new grid creation
-  window.removeEventListener("mouseup", handleMouseUp);           //
+  grid.removeEventListener("mousedown", handleMouseDown); //
+  grid.removeEventListener("mouseover", handleMouseOver); //   To make sure event listeners dont accumulate after new grid creation
+  window.removeEventListener("mouseup", handleMouseUp); //
 
   for (let i = 0; i < gridSize ** 2; i++) {
     var square = document.createElement("div");
     square.classList.add("grid-squares");
     square.style.setProperty("--grid-rows-columns", gridSize);
-    gridContainer.appendChild(square);
+    grid.appendChild(square);
   }
 
-  gridContainer.addEventListener("mousedown", handleMouseDown);
-  gridContainer.addEventListener("mouseover", handleMouseOver);
+  grid.addEventListener("mousedown", handleMouseDown);
+  grid.addEventListener("mouseover", handleMouseOver);
   window.addEventListener("mouseup", handleMouseUp);
 }
 
@@ -93,7 +149,6 @@ function handleMouseDown(event) {
   event.preventDefault();
   // Using prevent default make sure it doesnt try to grab and drag text or anything else causing weird behaviour
   if (event.target.classList.contains("grid-squares")) {
-
     if (toggleRandomMode == false) {
       isDragging = true;
       event.target.style.backgroundColor = colorPicker.color.hexString;
@@ -103,7 +158,8 @@ function handleMouseDown(event) {
       event.target.style.backgroundColor = generateRandomRgbColor();
     }
 
-    if (toggleTrailingEffect == true) event.target.style.opacity = generateTrailingEffect();
+    if (toggleTrailingEffect == true)
+      event.target.style.opacity = generateTrailingEffect();
   }
 }
 
@@ -115,7 +171,8 @@ function handleMouseOver(event) {
       event.target.style.backgroundColor = generateRandomRgbColor();
     }
 
-    if (toggleTrailingEffect == true) event.target.style.opacity = generateTrailingEffect();
+    if (toggleTrailingEffect == true)
+      event.target.style.opacity = generateTrailingEffect();
   }
 }
 
