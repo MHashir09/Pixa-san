@@ -75,6 +75,7 @@ submitBtn.addEventListener("click", (event) => {
 });
 
 clearGridBtn.addEventListener('click', () => {
+  grid.innerHTML = "";
   createGrid(gridSize);
 });
 
