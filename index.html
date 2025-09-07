@@ -4,7 +4,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Etch-A-Sketch</title>
+  <title>Welcome !!</title>
+  <link rel="icon" href="icons/favicon.png" type="image/png" />
   <link href="style.css" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/@jaames/iro@5"></script>
@@ -12,46 +13,112 @@
 </head>
 
 <body>
-  <div class="container">
-    <div class="grid-container"></div>
-    <div class="header">
-      <h1 class="headerHeading">Set your preferences („• ᴗ •„)</h1>
-    </div>
-    <form>
-      <div class="formData">
-        <div class="colorEffects">
-          <h1>Colors/Effects</h1>
-          <hr>
-          <h3>Choose a color</h3>
-          <div id="colorPicker"></div>
-          <h3>Or</h3>
-          <button id="randomMode">Enable random mode</button>
-          <h3>Also do you want to</h3>
-          <button id="trailingEffect">Enable trailing effect</button>
+  <main>
+
+    <section class="about-page-section">
+      <div class="aboutPageHeader">
+        <h1>Welcome to pixa-san (✯◡✯)</h1>
+      </div>
+      <div class="aboutPageItems">
+        <div class="abtPgeImgContainer c1">
+          <div class="abtPgeHeading">
+            <h2>A cute image I found on the internet</h2>
+          </div>
+          <div class="abtPgeImg">
+            <img src="icons/girl.png" alt="A girl holding paint palette" />
+          </div>
         </div>
-        <div class="gridSizeInput">
-          <h1>Enter Grid Size</h1>
-          <hr>
-          <h3>"Instructions"</h3>
+        <div class="info">
+          <div class="abtPgeHeading">
+            <h2>Information about Pixa-San</h2>
+          </div>
           <p>
-            Enter your preferred grid size below in values of tens from 1-100, if you enter a value that is lower than 0
-            or higher than 100, sketchboard won't appear. Whatever size you specify will determine the number of squares
-            in each row and column. <strong>For example:</strong> if you enter "16" it will create a 16x16 grid for you
-            (16 rows and 16 columns) forming a perfect square grid to bear your creativity !
+            Pixa-San is an <a href="https://en.wikipedia.org/wiki/Etch_A_Sketch" target="_blank" rel="noopener noreferrer">Etch-A-Sketch</a> inspired practice-project. It comprises of             a few controls and a sketboard on which you can draw in pixels. The project idea is from <a href="https://www.theodinproject.com/lessons/foundations-etch-a-sketch" target="            _blank" rel="noopener noreferrer">The Odin Project</a> but I added some fun elements to it mehehe. You can start by clicking the button below to first set the preferences a            nd then start pixeling your heart away. Thanks for visiting !!
           </p>
-          <input type="number" id="grid-size" placeholder=0 />
-          <div class="inputImage">
-            <img src="icons/hange.png" alt="an image of hange painting something" class="hangeImg">
+          <button id="redirectToPreferences">Set preferences</button>
+          <img src="icons/cute-girl-holding-paintbrush.gif" alt="cute girl holding paintbrush" />
+        </div>
+        <div class="abtPgeImgContainer c2">
+          <div class="abtPgeHeading">
+            <h2>A Sailor moon Image I found</h2>
+          </div>
+          <div class="abtPgeImg">
+            <img src="icons/sailor-moon-girl.png" alt="Sailor moon girl" />
           </div>
         </div>
       </div>
-      <div class="submitBtn">
-        <img src="https://saint-images.neocities.org/images/flower1.gif" alt="a blue rotating flower" class="flowerGif">
-        <button type="submit" id="submitButton">Start Pixeling</button>
-        <img src="https://saint-images.neocities.org/images/flower1.gif" alt="a blue rotating flower" class="flowerGif">
+    </section>
+
+    <section class="presetsSection hidden">
+      <form>
+        <div class="formHeader">
+          <h1>Set your preferences („• ᴗ •„)</h1>
+        </div>
+        <div class="formData">
+          <div class="colorEffects">
+            <h1>Colors/Effects</h1>
+            <hr />
+            <h3>Choose a color</h3>
+            <div id="colorPicker"></div>
+            <h3>Or</h3>
+            <button id="randomMode">Enable random mode</button>
+            <h3>Also do you want to</h3>
+            <button id="trailingEffect">Enable trailing effect</button>
+          </div>
+          <div class="gridSizeInput">
+            <h1>Enter Grid Size</h1>
+            <hr />
+            <h3>"Instructions"</h3>
+            <p>
+              Enter your preferred grid size below in values of tens from
+              1-100, if you enter a value that is lower than 0 or higher than
+              100, sketchboard won't appear. Whatever size you specify will
+              determine the number of squares in each row and column.
+              <strong>For example:</strong> if you enter "16" it will create a
+              16x16 grid for you (16 rows and 16 columns) forming a perfect
+              square grid to bear your creativity !
+            </p>
+            <input type="number" id="grid-size" placeholder="0" />
+            <div class="inputImage">
+              <img src="icons/hange.png" alt="an image of hange painting something" class="hangeImg" />
+            </div>
+          </div>
+        </div>
+        <div class="submitBtn">
+          <img src="https://saint-images.neocities.org/images/flower1.gif" alt="a blue rotating flower"
+            class="flowerGif" />
+          <button type="submit" id="submitButton">Start Pixeling</button>
+          <img src="https://saint-images.neocities.org/images/flower1.gif" alt="a blue rotating flower"
+            class="flowerGif" />
+        </div>
+      </form>
+    </section>
+
+    <section class="sketchboard-section hidden">
+      <div class="sketchBoardHeader">
+        <h1>(ᗒ⩊ᗕ) Pixa San (ᗒ⩊ᗕ)</h1>
       </div>
-    </form>
-  </div>
+      <div class="grid-container">
+        <div class="grid"></div>
+      </div>
+      <div class="controls-container">
+        <div class="toggleCtrlBtnContainer">
+          <img src="icons/cute-girl-holding-paintbrush.gif" alt="cute girl holding paintbrush" class="cuteGif" />
+          <button id="toggleCtrlBtn">Controls toggled</button>
+          <img src="icons/cute-girl-holding-paintbrush.gif" alt="cute girl holding paintbrush" class="cuteGif" />
+        </div>
+        <div class="controls hidden">
+          <hr />
+          <button id="randomMode">Enable random mode</button>
+          <button id="trailingEffect">Enable trailing effect</button>
+          <button id="redirectToPreferences">Preferences</button>
+          <button id="clearGrid">Clear grid</button>
+          <button id="redirectToAboutPage">About pixa-san</button>
+        </div>
+      </div>
+    </section>
+
+  </main>
 </body>
 
 </html>
