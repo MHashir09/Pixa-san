@@ -1,10 +1,11 @@
+/*>>> General Styles <<<*/
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "Silkscreen", sans-serif;
   color: #9ccfd8;
-  /* foam */
 }
 
 body {
@@ -18,23 +19,12 @@ body {
   cursor: url(icons/cursor.png), default;
 }
 
-section {
+main {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   min-width: 100%;
-}
-
-.formHeader {
-  background-color: white;
-  border-radius: 42px;
-  margin-top: 50px;
-  padding: 20px 25px 24px 25px;
-}
-
-.aboutPageHeader:hover, .formHeading:hover, .sketchBoardHeader:hover {
-  text-shadow: 0 6px 14px #9ccfd8;
 }
 
 h1 {
@@ -43,51 +33,15 @@ h1 {
   color: #3e8fb0;
 }
 
-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-}
-
-.formData {
-  display: flex;
-  flex-wrap: wrap;
-  min-width: 100%;
-  justify-content: space-evenly;
-  margin: 70px 0 80px 0;
-}
-
-.colorEffects > h1, .gridSizeInput > h1 {
-  margin-bottom: 8px;
-}
-
-.colorEffects {
-  display: flex;
-  flex-flow: column wrap;
-  align-items: center;
-  border-radius: 42px;
-  max-width: min-content;
-  padding: 20px 30px;
-  background-color: white;
-  padding-bottom: 20px;
+h3 {
+  color: #c4a7e7;
+  margin: 15px 0 0 0;
+  text-align: center;
 }
 
 hr {
   border: 1px solid #9ccfd8;
   width: 100%;
-}
-
-#colorPicker {
-  margin: 20px 30px;
-  padding: 0 10px;
-  cursor: url(https://cur.cursors-4u.net/games/gam-12/gam1113.cur), default;
-}
-
-h3 {
-  color: #c4a7e7;
-  margin: 15px 0 0 0;
-  text-align: center;
 }
 
 button {
@@ -105,132 +59,13 @@ button:hover {
   cursor: url(https://cur.cursors-4u.net/games/gam-12/gam1113.cur), default;
 }
 
-.gridSizeInput {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border-radius: 42px;
-  max-width: 32%;
-  padding: 20px 30px;
-  background-color: white;
-  padding-bottom: 20px;
+#colorPicker {
+  margin: 20px 30px;
+  padding: 0 10px;
+  cursor: url(https://cur.cursors-4u.net/games/gam-12/gam1113.cur), default;
 }
 
-p {
-  margin: 8px 0;
-  text-align: center;
-  color: #575279;
-}
-
-input {
-  border-radius: 12px;
-  border: none;
-  padding: 12px 22px;
-  color: #3e8fb0;
-  background-color: #e0def4;
-  margin: 14px 0;
-  text-align: center;
-}
-
-input::-webkit-inner-spin-button,
-input::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-input:focus {
-  outline: none;
-  box-shadow: 0 6px 14px #393552;
-}
-
-.inputImage {
-  max-width: 70%;
-}
-
-.hangeImg {
-  width: 100%;
-}
-
-.submitBtn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: white;
-  margin: 0 30px 40px 0;
-  min-width: 25%;
-  border-radius: 42px;
-}
-
-.flowerGif {
-  width: 40px;
-  height: 40px;
-  margin: 0 40px;
-}
-
-.sketchboard-section {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  align-items: center;
-  gap: 15px;
-  margin-top: 30px;
-}
-
-.sketchBoardHeader {
-  background-color: white;
-  border-radius: 42px;
-  padding: 15px 35px;
-}
-
-.grid-container {
-  display: flex;
-  min-width: 100%;
-  justify-content: center;
-}
-
-.grid {
-  display: flex;
-  flex-basis: 100%;
-  flex-wrap: wrap;
-  background-color: white;
-  padding: 5px;
-  border-radius: 12px;
-  cursor: url("icons/paint-brush-cursor.png"), default;
-}
-
-.grid-squares {
-  aspect-ratio: 1;
-  outline: 1px solid black;
-  flex-basis: calc(100% / var(--grid-rows-columns));
-}
-
-.controls-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: white;
-  padding: 8px 40px;
-  border-radius: 42px;
-  flex-basis: 50%;
-  margin: 40px 0;
-}
-
-.toggleCtrlBtnContainer {
-  display: flex;
-  align-items: center;
-}
-
-.cuteGif {
-  width: 60px;
-  height: 45px;
-  margin: 0 25px;
-}
-
-.controls {
-  display: flex;
-  flex-direction: column;
-  padding: 0 15px;
-}
+/*>>> About Section <<<*/
 
 .about-page-section {
   display: flex;
@@ -307,6 +142,178 @@ input:focus {
  border-left: 1px solid #248baa;
 }
 
+/*>>> Preferences Section Styles <<<*/
+
+.formHeader {
+  background-color: white;
+  border-radius: 42px;
+  margin-top: 50px;
+  padding: 20px 25px 24px 25px;
+}
+
+.aboutPageHeader:hover, .formHeading:hover, .sketchBoardHeader:hover {
+  text-shadow: 0 6px 14px #9ccfd8;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.formData {
+  display: flex;
+  flex-wrap: wrap;
+  min-width: 100%;
+  justify-content: space-evenly;
+  margin: 70px 0 80px 0;
+}
+
+.colorEffects > h1, .gridSizeInput > h1 {
+  margin-bottom: 8px;
+}
+
+.colorEffects {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  border-radius: 42px;
+  max-width: min-content;
+  padding: 20px 30px;
+  background-color: white;
+  padding-bottom: 20px;
+}
+
+.gridSizeInput {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 42px;
+  max-width: 32%;
+  padding: 20px 30px;
+  background-color: white;
+  padding-bottom: 20px;
+}
+
+p {
+  margin: 8px 0;
+  text-align: center;
+  color: #575279;
+}
+
+input {
+  border-radius: 12px;
+  border: none;
+  padding: 12px 22px;
+  color: #3e8fb0;
+  background-color: #e0def4;
+  margin: 14px 0;
+  text-align: center;
+}
+
+input::-webkit-inner-spin-button,
+input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input:focus {
+  outline: none;
+  box-shadow: 0 6px 14px #393552;
+}
+
+.inputImage {
+  max-width: 70%;
+}
+
+.hangeImg {
+  width: 100%;
+}
+
+.submitBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  margin: 0 30px 40px 0;
+  min-width: 25%;
+  border-radius: 42px;
+}
+
+.flowerGif {
+  width: 40px;
+  height: 40px;
+  margin: 0 40px;
+}
+
+/*>>> Sketchboard Section <<<*/
+
+.sketchboard-section {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.sketchBoardHeader {
+  background-color: white;
+  border-radius: 42px;
+  padding: 15px 35px;
+}
+
+.grid-container {
+  display: flex;
+  min-width: 100%;
+  justify-content: center;
+}
+
+.grid {
+  display: flex;
+  flex-basis: 50%;
+  flex-wrap: wrap;
+  background-color: white;
+  padding: 5px;
+  border-radius: 12px;
+  cursor: url("icons/paint-brush-cursor.png"), default;
+}
+
+.grid-squares {
+  aspect-ratio: 1;
+  flex-basis: calc(100% / var(--grid-rows-columns));
+}
+
+.controls-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  padding: 8px 40px;
+  border-radius: 42px;
+  flex-basis: 50%;
+  margin: 40px 0;
+}
+
+.toggleCtrlBtnContainer {
+  display: flex;
+  align-items: center;
+}
+
+.cuteGif {
+  width: 60px;
+  height: 45px;
+  margin: 0 25px;
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  padding: 0 15px;
+}
+
+/*>>> A hidden class to be used by javascript to dynamically hide sections and vice versa <<<*/
 
 .hidden {
   display: none;
